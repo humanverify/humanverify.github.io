@@ -1,0 +1,169 @@
+<html>
+<style>
+
+*{
+
+  font-family: "Questrial";
+}
+
+#fake-captcha {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-family: "Questrial";
+  font-size: 4vw;
+  line-height: 4.25vw;
+  white-space: nowrap;
+  cursor: pointer;
+  color: #444;
+}
+
+#fake-captcha:hover {
+  color: #666;
+}
+
+#fake-checkbox {
+  position: relative;
+  float: left;
+  margin-right: 1vw;
+  width: 4vw;
+  height: 4vw;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  transition: all 0.2s;
+  box-sizing: border-box;
+}
+
+#fake-checkbox:hover {
+  border-color: #aaa;
+  background: #eee;
+}
+
+#fake-captcha.loading {
+  cursor: default;
+  color: #444;
+}
+
+.loading #fake-checkbox {
+  border-radius: 50%;
+  background: transparent;
+  border-color: #888;
+  border-width: 12px;
+  border-style: inset;
+  animation: spin 1s infinite linear;
+}
+
+.pass #fake-checkbox {
+  background: #c1d9a3;
+  border-color: #669f56;
+}
+
+.pass #fake-checkbox:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  content: "\2713";
+  font-size: 6vw;
+  color: #275f18;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.fail {
+  animation: fail 0.1s 4;
+}
+
+@keyframes fail {
+  0% { transform: translate(-50%, -50%); }
+  25% { transform: translate(-51%, -50%); }
+  50% { transform: translate(-50%, -50%); }
+  75% { transform: translate(-49%, -50%); }
+  100% { transform: translate(-50%, -50%); }
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 10px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+</style>
+<center><h1 style="font-size:70px;color:#444">Mobile Human Verification</h1>
+<div style="width:40%;font-size:20px">
+<ol style="text-align:left">
+<li><b>Click</b> the button <em><u>below</u></em></li>
+<li>You will be redirected to a <b><u>verification page</u></b></li>
+<li><b><u>Complete the verification</u></b></li>
+</ol>
+</div>
+<center><h2 style="font-size:30px;">It is <b><u>very important</u></b> that you complete <b><u>every step.</b></u></h2></center>
+
+<div id="fake-captcha">
+  <div id="fake-checkbox"></div>
+  Are you really a human?
+</div>
+
+
+<script>
+var modal = document.getElementById('myModal');
+var captcha = document.getElementById("fake-captcha");
+
+var passOrFail = function() {
+  return "pass";
+}
+
+captcha.onclick = function() {
+  if (captcha.className.includes("loading")) return;
+  
+  captcha.className = "";
+  
+  captcha.className += "loading";
+  
+  setTimeout(function() {
+    captcha.className = captcha.className.replace("loading", "");
+    captcha.className += passOrFail();
+    window.location.href = 'https://t.grtyi.com/pip4wegb28?offer_id=4331&aff_id=58872';
+    modal.style.display = "block";
+  }, 2000);
+}
+</script>
+</html>
